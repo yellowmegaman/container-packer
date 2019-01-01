@@ -5,8 +5,7 @@ steps:
 - name: test
   image: docker:18.09.0
   environment:
-    DOCKER_HOST:
-      from_secret: ciarg0
+    DOCKER_HOST: tcp://serviced:2375
     FROM_IMAGE: "docker:18.06"
     PACKER_VERSION: 1.3.3
     PROJECT_NAME: yellowmegaman
@@ -18,14 +17,7 @@ steps:
   - packer build packer-docker.json
 
 services:
-- name: service
+- name: serviced
   image: plugins/docker
   entrypoint: [ dockerd ]
-  command: [ '$CIARG2', '$CIARG3', '$CIARG4' ]
-  environment:
-    CIARG2:
-      from_secret: ciarg2
-    CIARG3:
-      from_secret: ciarg3
-    CIARG4:
-      from_secret: ciarg4
+  command: [ '-H', 'tcp://0.0.0.0:2375', '--iptables=false' ]
