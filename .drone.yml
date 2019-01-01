@@ -1,0 +1,31 @@
+kind: pipeline
+name: github
+
+steps:
+- name: test
+  image: docker:18.09.0
+  environment:
+    DOCKER_HOST:
+      from_secret: ciarg0
+    FROM_IMAGE: "docker:18.06"
+    PACKER_VERSION: 1.3.3
+    PROJECT_NAME: yellowmegaman
+  commands:
+  - apk --no-cache add unzip wget
+  - wget https://releases.hashicorp.com/packer/1.3.3/packer_1.3.3_linux_amd64.zip -qO packer.zip
+  - unzip -q packer.zip
+  - mv packer /usr/bin/
+  - packer build packer-docker.json
+
+services:
+- name: service
+  image: plugins/docker
+  entrypoint: [ dockerd ]
+  command: [ '$CIARG2', '$CIARG3', '$CIARG4' ]
+  environment:
+    CIARG2:
+      from_secret: ciarg2
+    CIARG3:
+      from_secret: ciarg3
+    CIARG4:
+      from_secret: ciarg4
