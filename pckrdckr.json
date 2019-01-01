@@ -39,7 +39,7 @@
       {
         "type": "docker-tag",
         "repository": "{{user `project_name`}}/{{user `app`}}",
-        "tag": "{{user `tag`}}"
+        "tag": "{{user `packer_ver`}}"
       },
       {
         "type": "docker-push",
@@ -52,7 +52,7 @@
       {
         "type": "docker-tag",
         "repository": "quay.io/{{user `project_name`}}/{{user `app`}}",
-        "tag": "{{user `tag`}}"
+        "tag": "{{user `packer_ver`}}"
       },
       {
         "type": "docker-push",
