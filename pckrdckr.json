@@ -38,7 +38,7 @@
     [
       {
         "type": "docker-tag",
-        "repository": "{{user `project_name`}}/{{user `app`}}",
+        "repository": "docker.io/{{user `project_name`}}/{{user `app`}}",
         "tag": "{{user `packer_ver`}}"
       },
       {
