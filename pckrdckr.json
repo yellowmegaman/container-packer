@@ -52,7 +52,7 @@
       {
         "type": "docker-tag",
         "repository": "quay.io/{{user `project_name`}}/{{user `app`}}",
-        "tag": "latest"
+        "tag": "{{user `tag`}}"
       },
       {
         "type": "docker-push",

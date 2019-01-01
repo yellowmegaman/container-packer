@@ -5,6 +5,7 @@ steps:
 - name: test
   image: docker:18.09.0
   environment:
+    APP: pckrdckr
     DOCKER_HOST: tcp://serviced:2375
     FROM_IMAGE: "docker:18.06"
     PACKER_VERSION: 1.3.3
