@@ -4,9 +4,8 @@ name: github
 steps:
 - name: check for accidentally dropped creds
   image: yellowmegaman/trfflhg:2.0.98
-  entrypoint: [ /usr/local/bin/trufflehog ]
   commands:
-  - --regex --entropy=False file:///$CI_WORKSPACE
+  - /usr/local/bin/trufflehog --regex --entropy=False file:///$CI_WORKSPACE
 
 - name: pckrdckr
   image: docker:18.09.0
