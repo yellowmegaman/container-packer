@@ -5,7 +5,7 @@ steps:
 - name: check for accidentally dropped creds
   image: yellowmegaman/trfflhg:2.0.98
   commands:
-  - file:///$CI_WORKSPACE
+  - truffleHog --regex --entropy=False file:///$CI_WORKSPACE
 
 - name: pckrdckr
   image: docker:18.09.0
