@@ -2,6 +2,11 @@ kind: pipeline
 name: github
 
 steps:
+- name: check for accidentally dropped creds
+  image: yellowmegaman/trfflhg:2.0.98
+  commands:
+  - file:///$CI_WORKSPACE
+
 - name: pckrdckr
   image: docker:18.09.0
   environment:
@@ -24,11 +29,6 @@ steps:
   - unzip -q packer.zip
   - mv packer /usr/bin/
   - packer build pckrdckr.json
-
-- name: check for accidentally dropped creds
-  image: yellowmegaman/trfflhg:2.0.98
-  commands:
-  - file:///$CI_WORKSPACE
 
 services:
 - name: serviced
