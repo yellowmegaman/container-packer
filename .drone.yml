@@ -9,7 +9,7 @@ steps:
   - env | sort
 
 - name: check for accidentally dropped creds
-  image: yellowmegaman/trfflhg:2.0.98
+  image: yellowmegaman/container-trufflehog:2.0.98
   commands:
   - /usr/local/bin/trufflehog --regex --entropy=False file:///$CI_WORKSPACE
 
