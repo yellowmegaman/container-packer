@@ -1,4 +1,4 @@
-# container-packer [![Build Status](https://cloud.drone.io/api/badges/yellowmegaman/pckrdckr/status.svg)](https://cloud.drone.io/yellowmegaman/pckrdckr)
+# container-packer [![Build Status](https://cloud.drone.io/api/badges/yellowmegaman/container-packer/status.svg)](https://cloud.drone.io/yellowmegaman/container-packer)
 
 Most basic docker image with latest stable docker + Hashicorp Packer
 
