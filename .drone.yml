@@ -1,5 +1,5 @@
 kind: pipeline
-name: github
+name: container-packer
 
 steps:
 
