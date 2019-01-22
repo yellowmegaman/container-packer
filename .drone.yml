@@ -39,4 +39,4 @@ services:
 - name: serviced
   image: plugins/docker
   entrypoint: [ dockerd ]
-  command: [ '-H', 'tcp://0.0.0.0:2375', '--iptables=false', '--icc=false' ]
+  command: [ '-H', 'tcp://0.0.0.0:2375', '--iptables=true' ]
