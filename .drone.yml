@@ -34,6 +34,12 @@ steps:
   - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -N -L 0.0.0.0:2375:127.0.0.1:2375 $DOCKER_REMOTE_USER@$DOCKER_REMOTE_HOST -p $DOCKER_REMOTE_PORT
   detach: true
 
+- name: check-dockerhost
+  image: alpine:3.8
+  commands:
+  - sleep 1
+  - nc -zv dockerhost 2375
+
 - name: pack
   image: docker:18.09.2
   environment:
